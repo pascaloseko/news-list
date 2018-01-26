@@ -9,6 +9,11 @@
     {% endif %}
 </head>
 <body>
-    
+    <h3>Trending</h3>
+    <ul>
+        {% for top_headlines in trending %}
+            <li>{{ top_headlines.id }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
