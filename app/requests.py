@@ -10,8 +10,8 @@ api_key = app.config['NEWS_API_KEY']
 # Getting the news base url
 base_url = app.config["NEWS_API_BASE_URL"]
 
-def get_news(sports):
-    get_news_url = base_url.format(sports,api_key)
+def get_news(general):
+    get_news_url = base_url.format(general,api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
