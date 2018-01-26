@@ -13,6 +13,7 @@
     <ul>
         {% for top_headlines in trending %}
             <li>{{ top_headlines.author }}</li>
+            <img src="{{top_headlines.urlToImage}}" alt="Hello">
         {% endfor %}
     </ul>
 </body>
