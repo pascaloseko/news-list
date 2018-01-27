@@ -11,7 +11,6 @@ def index():
     '''
     # Get news
     top_headlines = get_news('general')
-    
     print(top_headlines)
     title = 'News'
     return render_template('index.html', title = title,trending = top_headlines)
