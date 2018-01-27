@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
-    <title>Welcome</title>
-    {% endif %}
-</head>
-<body>
-    <h3>Trending</h3>
-    {{source}}
-    <ul>
-        {% for top_headlines in trending %}
-            <li>{{ top_headlines.author }}</li>
-            <img src="{{top_headlines.urlToImage}}" alt="Hello">
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+<!-- Content Block -->
+{% block content %}
+
+<h3>Trending</h3>
+{{source}}
+<ul>
+    {{macro.displayNewsList(trending)}}
+</ul>
+
+{% endblock %}
