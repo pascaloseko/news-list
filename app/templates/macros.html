@@ -2,10 +2,10 @@
 
     {% for news in news_list %}
         <li class="list-group-item list-group-item-warning list-group-item-heading" style="font-size:20px">{{ news.title}}</li>
-        <img class="img-responsive img-thumbnail" src="{{ news.urlToImage }}" alt="Hello">
+        <img class="img-responsive img-thumbnail" src="{{ news.urlToImage }}" alt="No Image">
         <li class="list-group-item">{{ news.description }}</li>
-        <a class="list-group-item active" href="{{ news.url }}" target="_blank">View >></a>
-        <li class="list-group-item list-group-item-warning">Source:{{ news.author }}</li><br><br>
+        <a class="list-group-item active text-center" href="/sources/{{news.name}}" >View</a>
+        <li class="list-group-item list-group-item-warning">{{ news.author|upper() }}</li><br><br>
     {% endfor %}
 
 {% endmacro %}
