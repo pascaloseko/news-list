@@ -1,11 +1,11 @@
 {% macro displayNewsList(news_list) %}
 
     {% for news in news_list %}
-        <li>{{ news.title}}</li>
-        <img src="{{ news.urlToImage }}" alt="Hello">
-        <li>{{ news.description }}</li>
-        <a href="{{ news.url }}">link</a>
-        <li>{{ news.author }}</li>
+        <li class="list-group-item list-group-item-warning list-group-item-heading" style="font-size:20px">{{ news.title}}</li>
+        <img class="img-responsive img-thumbnail" src="{{ news.urlToImage }}" alt="Hello">
+        <li class="list-group-item">{{ news.description }}</li>
+        <a class="list-group-item active" href="{{ news.url }}" target="_blank">View >></a>
+        <li class="list-group-item list-group-item-warning">Source:{{ news.author }}</li><br><br>
     {% endfor %}
 
 {% endmacro %}
