@@ -2,11 +2,27 @@
 {% import 'macros.html' as macro%}
 <!-- Content Block -->
 {% block content %}
-
-<h3>Trending</h3>
-{{source}}
-<ul>
-    {{macro.displayNewsList(trending)}}
-</ul>
+<div class="container"> 
+    <div class="row">
+        <div class="col-lg-4 col-sm-4 col-xs-6">
+            <h3>Trending</h3><hr>
+            <ul class="list-group">
+                {{macro.displayNewsList(trending)}}
+            </ul>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-6">
+            <h3>Sports</h3><hr>
+            <ul>
+                {{macro.displayNewsList(sports)}}
+            </ul>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-6">
+            <h3>Technolgy</h3><hr>
+            <ul>
+                {{macro.displayNewsList(techie)}}
+            </ul>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
