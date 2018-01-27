@@ -1,8 +1,9 @@
 from app import app
 import urllib.request,json
-from .models import news
+from .models import news,sources
 
 News = news.News
+Sources = sources.Sources
 
 # Getting the api key
 api_key = app.config['NEWS_API_KEY']
@@ -24,6 +25,27 @@ def get_news(general):
             news_results = process_results(news_results_list)
 
     return news_results
+
+def get_sources():
+    get_sources_url = 'https://newsapi.org/v2/sources?api_key={}'.format(api_key)
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_source_data = url.read()
+        get_source_response = json.loads(get_source_data)
+
+        source_object = None
+
+        if get_source_response:
+            id = get_source_response.get('id')
+            name = get_source_response.get('name')
+            description = get_source_response.get('description')
+            url = get_source_response.get('url')
+            country = get_source_response.get('country')
+
+            source_object = Sources(id,name,description,url,country)
+
+
+    return source_object
 
 def process_results(news_list):
     '''
