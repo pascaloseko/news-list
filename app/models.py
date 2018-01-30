@@ -1,30 +1,28 @@
-class News:
-    def __init__(self,author,title,description,url,urlToImage,publishedAt):
-        self.author = author
-        self.title = title
-        self.description = description
-        self.url = url
-        self.urlToImage = urlToImage
-        self.publishedAt = publishedAt
+class Source:
 
-class Sources:
+      '''
+      class to define news source object
+      '''
 
-      all_sources = []
-
-      def __init__(self,id,name,description,url,country):
+      def __init__(self,id,name,description,url,category,country):
             self.id = id
             self.name = name
             self.description = description
             self.url = url
+            self.category = category
             self.country = country
 
-      @classmethod
-      def get_sources(cls,id):
+class News:
 
-            response = []
-
-            for sources in cls.all_sources:
-                  if sources.id == id:
-                        response.append(sources)
-                        
-            return response
+      '''
+      Defines what we would like to display in our news outlay
+      '''  
+      def __init__(self,id,name,author,title,description,url,urlToImage,publishedAt):
+            self.id = id
+            self.name = name
+            self.author = author
+            self.title = title
+            self.description = description
+            self.url = url
+            self.urlToImage = urlToImage
+            self.publishedAt = publishedAt
