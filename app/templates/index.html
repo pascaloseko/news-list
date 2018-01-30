@@ -1,35 +1,116 @@
 {% extends 'base.html' %}
-{% import 'macros.html' as macro%}
-
-<!-- Styles block -->
-{% block styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-
 <!-- Content Block -->
 {% block content %}
-<div class="container"> 
+<div class="container mt-4">
     <div class="row">
-        <div class="col-lg-4 col-sm-4 col-xs-6">
-            <h3 class="text-center">Trending</h3><hr>
-            <ul class="list-group">
-                {{macro.displayNewsList(trending)}}
-            </ul>
+        <div class="jumbotron ml-5">
+            <h1 class="text-center display-4">Welcome to your news sources website</h1>
+            <p class="text-center lead">Its a website that allows you to look for various news content</p>
+        </div>
+    </div><br><br><br>
+    <div class="row">
+        <div class="col-lg-4 col-sm-4 col-xs-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="text-center">General</h2>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">General Sources</h5>
+                    <div class="row">
+                        {% for general in general %}
+                            <ul class="list-group">
+                                <a href="/news/{{general.id}}" class="list-group-item p-3 m-2" style="border:2px solid #0288D1">{{general.name}}</a>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-xs-6">
-            <h3 class="text-center">Sports</h3><hr>
-            <ul>
-                {{macro.displayNewsList(sports)}}
-            </ul>
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h2 class="text-center">Technology</h1>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Technology Sources</h5>
+                        <div class="row">
+                            {% for tech in techie %}
+                                <ul class="list-group">
+                                    <a href="/news/{{tech.id}}" class="list-group-item p-3 m-2" style="border:2px solid #0288D1">{{tech.name}}</a>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div><br>
         </div>
         <div class="col-lg-4 col-sm-4 col-xs-6">
-            <h3 class="text-center">Technolgy</h3><hr>
-            <ul>
-                {{macro.displayNewsList(techie)}}
-            </ul>
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h2 class="text-center">Sports</h1>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Sports Sources</h5>
+                        <div class="row">
+                            {% for sports in sports %}
+                                <ul class="list-group">
+                                    <a href="/news/{{sports.id}}" class="list-group-item p-3 m-2" style="border:2px solid #0288D1">{{sports.name}}</a>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div><br>
+            </div>
+        <div class="col-lg-4 col-sm-4 col-xs-6">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h2 class="text-center">Business</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-tile">Business Sources</h5>
+                    <div class="row">
+                        {% for business in business %}
+                            <ul class="list-group">
+                                <a href="/news/{{business.id}}" class="list-group-item p-3 m-2" style="border:2px solid #0288D1">{{business.name}}</a>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><br>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h2 class="text-center">Health</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Health Sources</h5>
+                    <div class="row">
+                        {% for health in health %}
+                            <ul class="list-group">
+                                <a href="/news/{{health.id}}" class="list-group-item p-3 m-2" style="border:2px solid #0288D1">{{health.name}}</a>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><br>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="text-center">Entertainment</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Entertainment Sources</h5>
+                    <div class="row">
+                        {% for entertainment in entertainment %}
+                            <ul class="list-group">
+                                <a href="/news/{{entertainment.id}}" class="list-group-item p-3 m-2" style="border:2px solid #0288D1">{{entertainment.name}}</a>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><br>
         </div>
     </div>
 </div>
-
 {% endblock %}
